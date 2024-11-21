@@ -1,25 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Post from "./Post.jsx";
+import Header from "./Header.jsx"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+  
+    const posts = [
+     {img_url:"IndianFlag.img",
+       caption :"India Flag"
+    }
+    ,
+      {img_url:"india map.jpeg",
+      caption :"India map"},
+      {
+       img_url :"indianpeople.jpeg",
+       caption :"Indian people"
+      }
+    ]
+    return (
+        <div className = "ZaceBook">
+          <Header/>
+          {
+            posts.map((array,index) => {
+              return <Post key ={index}  img_url = {array.img_url} caption ={array.caption} ></Post>
+            })
+          }
+        </div>
+    );
+  }
 export default App;
